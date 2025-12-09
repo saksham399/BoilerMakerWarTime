@@ -125,6 +125,7 @@ html,body{
   color:var(--accent);
   font-size:28px;
   margin-bottom:16px;
+  border-bottom: #8b5e3c 3px solid;
 }
 
 .analysis-card{
@@ -155,4 +156,14 @@ html,body{
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: #c5a287;
+}
+
+.card-img-top{
+    width: 60%;
+    height: auto;
+}
+
+.card{
+    width: auto;
+    height: auto;
 }
