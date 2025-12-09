@@ -66,26 +66,7 @@
         </div>
     </div>
 </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="scripts/script.js"></script>
-  <script>
-    const card = document.querySelector('.zoom-card');
-    const overlay = document.getElementById('zoomOverlay');
-    const closeBtn = document.getElementById('zoomClose');
-
-    card.addEventListener('click', () => {
-    overlay.classList.add('active');
-    });
-
-    closeBtn.addEventListener('click', () => {
-    overlay.classList.remove('active');
-    });
-
-    // Optional: click outside to close
-    overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) overlay.classList.remove('active');
-    });
-</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="scripts/script.js"></script>
 </body>
 </html>
