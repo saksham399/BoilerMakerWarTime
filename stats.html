@@ -32,26 +32,60 @@
 
   <main class="container-fluid page-content">
     <section id="emotion-analysis" class="py-5">
-      <div class="container">
-        <h2 class="montserrat-main section-heading">Emotions, Visualized</h2>
-        <div class="card mb-3" style="max-width: 100vw;">
-            <div class="row g-0">
-                <div class="col-md-8">
-                    <img src="static/graf.png" class="img-fluid rounded-start" alt="...">
-                </div>
-                <div class="col-md-4">
-                    <div class="card-body">
-                        <h3 class="card-title">Mood Analysis Overtime On Campus</h3>
-                        <p class="card-text">We used mood context analysis, using word frequencies to measure certain moods and how the world wars affected their levels and thus the effect on students especially during wartime.</p>
+        <div class="container">
+            <div class="card mb-3 zoom-card" style="max-width: 50vw;">
+                <div class="row g-0">
+                    <div class="col-md-8">
+                        <img src="static/graf.png" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card-body">
+                            <h3 class="card-title">Mood Analysis Overtime On Campus</h3>
+                            <p class="card-text">We used mood context analysis, using word frequencies to measure certain moods and how the world wars affected their levels and thus the effect on students especially during wartime.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-      </div>
     </section>
   </main>
 
+  <div class="zoom-overlay" id="zoomOverlay">
+    <div class="zoom-content">
+        <button id="zoomClose" class="close-btn">&times;</button>
+        <div class="row g-0">
+            <div class="col-md-9">
+                <img src="static/graf.png" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-3">
+                <div class="card-body">
+                    <h3 class="card-title">Mood Analysis Overtime On Campus</h3>
+                    <p class="card-text">We used mood context analysis, using word frequencies to measure certain moods and how the world wars affected their levels and thus the effect on students especially during wartime.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="scripts/script.js"></script>
+  <script>
+    const card = document.querySelector('.zoom-card');
+    const overlay = document.getElementById('zoomOverlay');
+    const closeBtn = document.getElementById('zoomClose');
+
+    card.addEventListener('click', () => {
+    overlay.classList.add('active');
+    });
+
+    closeBtn.addEventListener('click', () => {
+    overlay.classList.remove('active');
+    });
+
+    // Optional: click outside to close
+    overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) overlay.classList.remove('active');
+    });
+</script>
 </body>
 </html>
