@@ -33,39 +33,97 @@
   <main class="container-fluid page-content">
     <section id="emotion-analysis" class="py-5">
         <div class="container">
-            <div class="card mb-3 zoom-card" style="max-width: 50vw;">
-                <div class="row g-0">
+          <table>
+            <tr>
+              <td>
+                <div class="card mb-3 zoom-card" style="max-width: 50vw;">
+                  <div class="row g-0">
                     <div class="col-md-8">
                         <img src="static/graf.png" class="img-fluid rounded-start" alt="...">
                     </div>
                     <div class="col-md-4">
-                        <div class="card-body">
-                            <h3 class="card-title">Mood Analysis Overtime On Campus</h3>
-                            <p class="card-text">We used mood context analysis, using word frequencies to measure certain moods and how the world wars affected their levels and thus the effect on students especially during wartime.</p>
-                        </div>
+                      <div class="card-body">
+                          <h3 class="card-title">Sentiment Analysis Overtime On Campus</h3>
+                          <p class="card-text">Using word frequencies from each article of The Exponent, we measured certain sentiments/moods/emotions and how the world wars affected their levels and thus the effect on students especially during wartime.</p>
+                      </div>
                     </div>
+                  </div>
                 </div>
-            </div>
+              </td>
+              <td>
+                <div class="card mb-3 zoom-card" style="max-width: 50vw;">
+                  <div class="row g-0">
+                    <div class="col-md-8">
+                        <img src="static/image2.png" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-4">
+                      <div class="card-body">
+                          <h3 class="card-title">Compound Sentiments Overtime</h3>
+                          <p class="card-text">Using word frequencies from each article of The Exponent, we measured compound sentiments/moods/emotions specifically, and what it entails about the presence or absence of bias in the journalism of The Exponent.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </table>
         </div>
     </section>
   </main>
 
   <div class="zoom-overlay" id="zoomOverlay">
-    <div class="zoom-content">
-        <button id="zoomClose" class="close-btn">&times;</button>
-        <div class="row g-0">
-            <div class="col-md-9">
-                <img src="static/graf.png" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-3">
-                <div class="card-body">
-                    <h3 class="card-title">Mood Analysis Overtime On Campus</h3>
-                    <p class="card-text">We used mood context analysis, using word frequencies to measure certain moods and how the world wars affected their levels and thus the effect on students especially during wartime.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+      <div class="zoom-content">
+          <button id="zoomClose" class="close-btn">&times;</button>
+          <div class="row g-0">
+              <div class="col-md-9">
+                  <img src="static/graf.png" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-3">
+                  <div class="card-body">
+                      <h3 class="card-title">Sentiments in articles of The Exponent during WW2</h3>
+                      <p class="card-text">
+                        <ol>
+                          <li>Each dot is an article from issues of The Exponent from 1936 to 1945.</li>
+                          <li>The y-axis represents the percentage of tokens in that article containing the specified emotions: positive, negative, and neutral.</li>
+                          <li>The x-axis represents the publication date of each article.</li>
+                          <li>The "compound" sentiment represents articles that contain all three: positive, negative, and neutral sentiment words.</li>
+                        </ol>
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="zoom-overlay" id="zoomOverlay2">
+      <div class="zoom-content">
+          <button id="zoomClose" class="close-btn">&times;</button>
+          <div class="row g-0">
+              <div class="col-md-4">
+                  <img src="static/image2.png" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                  <div class="card-body">
+                      <h3 class="card-title">Compound Sentiments and Trends Explained</h3>
+                      <p class="card-text">
+                        <ol>
+                          <li>Best fit line included for compound values. Note, the x axis values have no meaning at all</li>
+                          <li>Each dot represents a single exponent article. Negative, Neutral, Positive represent % of tokens in an article that contributes to those sentiment categories. Compound represents the overall sentiment of the article</li>
+                          <li>According to the sentiment compositions (pos, neu, neg) graphs, a vast majority of tokens contributed to the neutral category. However, the high variance of the compound sentiment score suggests tokens contributing to either direction contribute very strongly. One can imagine this is the contract between generally dry, informational journalistic writing with hard hitting, evocative sentences interspersed for effect, either positive or negative.</li>
+                          <li>with an average value of 0.46 on the compound sentiment graph. This, however, experiences near 0 variance with the best fit line: 7.67e-06 + x * 4.61345852e-01 (where x represents an individual article date). The average indeed remains consistent across the full dataset, suggesting a lack of correlation between events during the war and the sentiment of the articles.</li>
+                          <li>
+                            Considering the dataset extending back to 1936 controls for the prewar sentiment of newspaper articles in the exponent, it also becomes difficult to draw conclusions on the effect of censorship.
+                          </li>
+                          <li>
+                            Further investigation might focus more on article headlines rather than full article content. Articles may share common, emotionally neutral journalistic jargon which anchors sentiment values in place. This could overpower more telling, emotionally charged language during sentiment analysis. Due to the time constraints of the project however, this possibility was not explored.
+                          </li>
+                        </ol>
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="scripts/script.js"></script>
 </body>

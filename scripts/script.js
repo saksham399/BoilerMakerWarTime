@@ -13,21 +13,38 @@
 })();
 
 document.addEventListener("DOMContentLoaded", () => {
-  const card = document.querySelector('.zoom-card');
-  const overlay = document.getElementById('zoomOverlay');
-  const closeBtn = document.getElementById('zoomClose');
+  const cards = document.querySelectorAll('.zoom-card');
 
-  if (!card || !overlay || !closeBtn) return; // safety
+  const overlay1 = document.getElementById('zoomOverlay');
+  const overlay2 = document.getElementById('zoomOverlay2');
 
-  card.addEventListener('click', () => {
-    overlay.classList.add('active');
+  cards.forEach((card, index) => {
+    card.addEventListener('click', () => {
+      if (index === 0 && overlay1) overlay1.classList.add('active');
+      if (index === 1 && overlay2) overlay2.classList.add('active');
+    });
   });
 
-  closeBtn.addEventListener('click', () => {
-    overlay.classList.remove('active');
-  });
+  function wireOverlay(overlay) {
+    if (!overlay) return;
 
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) overlay.classList.remove('active');
+    const closeBtn = overlay.querySelector('.close-btn');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => overlay.classList.remove('active'));
+    }
+
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) overlay.classList.remove('active');
+    });
+  }
+
+  wireOverlay(overlay1);
+  wireOverlay(overlay2);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (overlay1) overlay1.classList.remove('active');
+      if (overlay2) overlay2.classList.remove('active');
+    }
   });
 });

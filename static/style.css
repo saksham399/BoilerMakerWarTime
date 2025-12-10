@@ -168,6 +168,10 @@ html,body{
     height: auto;
 }
 
+.weewoo{
+  transform: scale(1.02);
+}
+
 /* Default card hover effect (optional) */
 .zoom-card {
   cursor: pointer;
@@ -230,4 +234,64 @@ html,body{
 .zoom-overlay.active .zoom-content {
   transform: translateY(0);
   opacity: 1;
+}
+
+/* force the two cards to sit side-by-side */
+.page-content table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.page-content td {
+  vertical-align: top;
+  padding: 2px;
+}
+
+/* cards fill the cell and match height */
+.zoom-card {
+  height: 380px; /* change this if you want taller cards */
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* inner row must stretch */
+.zoom-card .row {
+  flex: 1;
+  height: 100%;
+  margin: 0;
+}
+
+/* IMAGE COLUMN behaves: fill height first, crop width */
+.zoom-card .col-md-8 {
+  height: 100%;
+  padding: 0;
+}
+
+.zoom-card .col-md-8 img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* TEXT COLUMN takes remaining space */
+.zoom-card .col-md-4 {
+  height: 100%;
+  padding: 0;
+  display: flex;
+}
+
+.zoom-card .card-body {
+  padding: 14px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* change to flex-start if you want top alignment */
+}
+
+#zoom-overlay2 img {
+  max-width: 90vw;
+  height: auto;
 }
